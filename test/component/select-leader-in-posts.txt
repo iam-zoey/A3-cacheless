@@ -1,0 +1,88 @@
+ubuntu@instance-20241209-031100:~/lab3$ go run main.go
+Provide the number of posts: 3
+Provide the number of nodes: 8
+
+==== Starting Warehouse ====
+Starting a Warehouse node on process 921828
+2024/12/11 23:10:07 Node 0 is listening on localhost:8000
+
+======= Starting nodes =======
+INFO: Started Node 1 with Role buyer in Post 2 on process 921895
+INFO: Started Node 3 with Role buyer in Post 2 on process 921896
+INFO: Started Node 6 with Role buyer in Post 2 on process 921897
+INFO: Started Node 7 with Role buyer in Post 2 on process 921898
+INFO: Started Node 8 with Role seller in Post 2 on process 921901
+INFO: Started Node 2 with Role seller in Post 3 on process 921908
+INFO: Started Node 5 with Role buyer in Post 3 on process 921909
+INFO: Started Node 4 with Role seller in Post 1 on process 921917
+2024/12/11 23:10:12 Node 5 is listening on localhost:8005
+2024/12/11 23:10:12 Node 8 is listening on localhost:8008
+2024/12/11 23:10:12 Node 2 is listening on localhost:8002
+2024/12/11 23:10:12 Node 1 is listening on localhost:8001
+2024/12/11 23:10:12 Node 3 is listening on localhost:8003
+  Node 4 is the only node in the post. Assigning Trader role.
+2024/12/11 23:10:12 Node 4 is listening on localhost:8004
+2024/12/11 23:10:12 Node 7 is listening on localhost:8007
+2024/12/11 23:10:12 Node 6 is listening on localhost:8006
+
+======== Starting election =======
+INFO: Triggering election for Post 2...
+2024/12/11 23:10:17 Node 5: Election completed. Coordinator elected: Node 5
+2024/12/11 23:10:17 Visited nodes: [2 5]
+2024/12/11 23:10:17 InformCoordinator: called by Node 5
+2024/12/11 23:10:17 Node 2: Trader assigned as Node 5 for Post 3
+2024/12/11 23:10:17 Successfully notified Node 2 about the coordinator.
+2024/12/11 23:10:17 Node 5: Trader assigned as Node 5 for Post 3
+2024/12/11 23:10:17 Successfully notified Node 5 about the coordinator.
+Election triggered for group 2 on node localhost:8002
+INFO: Triggering election for Post 3...
+2024/12/11 23:10:19 Node 6: Election completed. Coordinator elected: Node 8
+2024/12/11 23:10:19 Visited nodes: [3 1 8 7 6]
+2024/12/11 23:10:19 InformCoordinator: called by Node 6
+2024/12/11 23:10:19 Node 3: Trader assigned as Node 8 for Post 2
+2024/12/11 23:10:19 Successfully notified Node 3 about the coordinator.
+2024/12/11 23:10:19 Node 1: Trader assigned as Node 8 for Post 2
+2024/12/11 23:10:19 Successfully notified Node 1 about the coordinator.
+2024/12/11 23:10:19 Node 8: Trader assigned as Node 8 for Post 2
+2024/12/11 23:10:19 Successfully notified Node 8 about the coordinator.
+2024/12/11 23:10:19 Node 7: Trader assigned as Node 8 for Post 2
+2024/12/11 23:10:19 Successfully notified Node 7 about the coordinator.
+2024/12/11 23:10:19 Node 6: Trader assigned as Node 8 for Post 2
+2024/12/11 23:10:19 Successfully notified Node 6 about the coordinator.
+Election triggered for group 3 on node localhost:8003
+2024/12/11 23:10:21 Post 1 has 1 node(s). Election not required.
+
+=========== Display Nodes  ===========
+
+[Node ID: 8 Role Information]
+Node information retrieved successfully.
+Node ID: 8, Role: Trader, Post:2, Leader: 8,  Neighbors: [7 1],
+
+[Node ID: 7 Role Information]
+Node information retrieved successfully.
+Node ID: 7, Role: buyer, Post:2, Leader: 8, Neighbors: [6 8], ShoppingList: map[boar:5]
+
+[Node ID: 6 Role Information]
+Node information retrieved successfully.
+Node ID: 6, Role: buyer, Post:2, Leader: 8, Neighbors: [3 7], ShoppingList: map[boar:5]
+
+[Node ID: 5 Role Information]
+Node information retrieved successfully.
+Node ID: 5, Role: Trader, Post:3, Leader: 5,  Neighbors: [2 2],
+
+[Node ID: 4 Role Information]
+Node information retrieved successfully.
+Node ID: 4, Role: Trader, Post:1, Leader: 4,  Neighbors: [],
+
+[Node ID: 3 Role Information]
+Node information retrieved successfully.
+Node ID: 3, Role: buyer, Post:2, Leader: 8, Neighbors: [1 6], ShoppingList: map[salt:10]
+
+[Node ID: 2 Role Information]
+Node information retrieved successfully.
+Node ID: 2, Role: seller , Post:3, Leader: 5,  Neighbors: [5 5], ItemsforSale: map[fish:10]
+
+[Node ID: 1 Role Information]
+Node information retrieved successfully.
+Node ID: 1, Role: buyer, Post:2, Leader: 8, Neighbors: [8 3], ShoppingList: map[boar:8]
+ubuntu@instance-20241209-031100:~/lab3$ 

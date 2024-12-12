@@ -1,0 +1,3 @@
+salt 3
+fish 1
+boar 19
